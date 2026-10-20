@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../data/config';
+---
+
+<Layout
+  title={`Termos de Uso | ${SITE_CONFIG.name}`}
+  description={`Termos e condições de uso dos serviços da ${SITE_CONFIG.name} em Uberlândia - MG. Conheça as políticas de medição, execução e garantia.`}
+>
+  <main class="bg-white">
+    <!-- Header Section -->
+    <section class="bg-brand-light/60 border-b border-gray-100 py-24 lg:py-32">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <!-- Breadcrumbs -->
+        <nav class="flex justify-center items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500 mb-8" aria-label="Navegação">
+          <a href="/" class="hover:text-primary transition-colors">Início</a>
+          <span>/</span>
+          <span class="text-gray-900 font-bold">Termos de Uso</span>
+        </nav>
+
+        <span class="inline-block py-1.5 px-4 rounded-full bg-green-100 text-secondary text-xs font-black uppercase tracking-wider mb-4 border border-green-200">
+          Condições & Garantias
+        </span>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tighter leading-tight mb-6">
+          Termos e Condições de Uso
+        </h1>
+
+        <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-medium">
+          Última atualização: Outubro de 2026. Conheça as diretrizes de navegação, solicitação de serviços, prazos e termos de garantia.
+        </p>
+      </div>
+    </section>
+
+    <!-- Terms Content Section -->
+    <section class="py-24 lg:py-32">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="bg-white rounded-3xl border border-green-100 p-8 sm:p-12 lg:p-16 shadow-xl shadow-green-950/5">
+          
+          <div class="space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg font-normal">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight pt-4">
+              1. Aceitação dos Termos
+            </h2>
+            <p>
+              Ao acessar o site da <strong class="text-gray-900 font-bold">{SITE_CONFIG.name}</strong> ({SITE_CONFIG.siteUrl}) ou solicitar orçamentos e serviços de vidraçaria, esquadrias e manutenções, você concorda expressamente em cumprir estes Termos e Condições de Uso e as normas aplicáveis em Uberlândia - MG.
+            </p>
+          </div>
+
+          <hr class="my-10 border-gray-100" />
+
+          <div class="space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg font-normal">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              2. Orçamentos e Medições Técnicas a Laser
+            </h2>
+            <p>
+              Os orçamentos preliminares informados por WhatsApp têm caráter estimativo. O valor final e o cronograma definitivo são confirmados após a visita técnica com medição a laser no seu imóvel em Uberlândia, garantindo precisão milimétrica.
+            </p>
+            <p>
+              A medição técnica não gera custos ou obrigações de contratação em nenhum dos bairros atendidos pela {SITE_CONFIG.name}.
+            </p>
+          </div>
+
+          <hr class="my-10 border-gray-100" />
+
+          <div class="space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg font-normal">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              3. Normas Técnicas e Segurança (ABNT)
+            </h2>
+            <p>
+              A {SITE_CONFIG.name} adota estritamente os padrões técnicos da Associação Brasileira de Normas Técnicas (ABNT):
+            </p>
+            <ul class="list-disc list-inside space-y-2 ml-4">
+              <li><strong>ABNT NBR 14207:</strong> Boxes de banheiro fabricados em vidro temperado de segurança.</li>
+              <li><strong>ABNT NBR 14718:</strong> Guarda-corpos para edificações em vidros laminados de alta resistência.</li>
+              <li><strong>ABNT NBR 16259:</strong> Sistemas de envidraçamento de sacadas com estanqueidade e resistência a vento.</li>
+              <li><strong>ABNT NBR 10821:</strong> Esquadrias para edificações com vedação acústica e térmica.</li>
+            </ul>
+          </div>
+
+          <hr class="my-10 border-gray-100" />
+
+          <div class="space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg font-normal">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              4. Garantia e Assistência Técnica
+            </h2>
+            <p>
+              Todos os nossos produtos e serviços acompanham garantia contra defeitos de fabricação de perfis, componentes e vedações. A garantia não cobre quebras por choque mecânico indevido ou alterações na estrutura executadas por terceiros sem prévia autorização.
+            </p>
+          </div>
+
+
+
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

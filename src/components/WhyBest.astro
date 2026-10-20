@@ -1,0 +1,93 @@
+---
+import { SITE_CONFIG } from '../data/config';
+
+const whatsappUrl = SITE_CONFIG.whatsappUrl;
+---
+
+<section class="bg-gradient-to-b from-[#064E3B] via-[#043d2f] to-[#064E3B] text-white py-24 lg:py-32 border-b border-emerald-950 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none opacity-20">
+    <div class="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-emerald-400 blur-3xl"></div>
+  </div>
+
+  <div class="container mx-auto px-6 lg:px-12 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+      <!-- Coluna Visual da Esquerda: Card Branco de Alto Contraste -->
+      <div class="lg:col-span-5">
+        <div class="bg-white text-gray-900 rounded-3xl p-10 lg:p-12 shadow-2xl relative overflow-hidden transition-all duration-300 hover:scale-105 group border border-white/20">
+          <span class="inline-block py-1.5 px-3.5 rounded-full bg-emerald-100 text-secondary text-xs font-black uppercase tracking-wider mb-6 border border-emerald-200">
+            Referência Local em Uberlândia
+          </span>
+
+          <h3 class="text-2xl sm:text-3xl font-black text-gray-900 leading-tight mb-6 tracking-tight">
+            Excelência em Vidros e Esquadrias do Tubalina para Toda Uberlândia
+          </h3>
+
+          <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-8 font-normal">
+            Na Vidraçaria Axis Glass, não entregamos apenas vidros: oferecemos segurança para a sua família, durabilidade estrutural e acabamento de alto padrão que valoriza seu imóvel.
+          </p>
+
+          <div class="pt-6 border-t border-gray-100 grid grid-cols-2 gap-4 text-xs">
+            <div>
+              <span class="block text-3xl font-black text-secondary">100%</span>
+              <span class="text-gray-600 font-medium">Vidros Homologados</span>
+            </div>
+            <div>
+              <span class="block text-3xl font-black text-primary">0</span>
+              <span class="text-gray-600 font-medium">Taxas Ocultas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna da Direita: Argumentação com Texto Branco Legível -->
+      <div class="lg:col-span-7 flex flex-col justify-center">
+        <span class="text-xs font-black uppercase tracking-wider text-emerald-300 mb-3 block">
+          Liderança & Rigor Técnico
+        </span>
+
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tighter mb-6">
+          Por Que Somos a Vidraçaria em Uberlândia de Maior Confiança na Região?
+        </h2>
+
+        <div class="space-y-4 text-emerald-100 text-base sm:text-lg leading-relaxed mb-8 font-normal">
+          <p>
+            Ao procurar por uma Vidraçaria em Uberlândia com atendimento rápido perto de você, a pontualidade e o acabamento fazem toda a diferença. A Vidraçaria Axis Glass construiu sua reputação com base na honestidade no orçamento, materiais de primeira linha e instalações limpas.
+          </p>
+          <p>
+            Com sede localizada estrategicamente na {SITE_CONFIG.address.fullFormatted}, você sempre conta com o vidraceiro mais próximo para vistorias técnicas a laser e entregas sem atrasos em todos os setores da cidade.
+          </p>
+        </div>
+
+        <!-- Pilares de Destaque com Cartões Brancos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <div class="flex items-start gap-3 p-5 rounded-2xl bg-white text-gray-900 shadow-md">
+            <span class="w-8 h-8 rounded-xl bg-emerald-100 text-secondary flex items-center justify-center shrink-0 font-black text-sm">✓</span>
+            <div>
+              <strong class="text-gray-900 text-sm block font-bold">Equipe Própria e Uniformizada</strong>
+              <span class="text-xs text-gray-600">Instaladores experientes e cuidadosos com sua obra.</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-5 rounded-2xl bg-white text-gray-900 shadow-md">
+            <span class="w-8 h-8 rounded-xl bg-emerald-100 text-secondary flex items-center justify-center shrink-0 font-black text-sm">✓</span>
+            <div>
+              <strong class="text-gray-900 text-sm block font-bold">Vidros Cebrace e Guardian</strong>
+              <span class="text-xs text-gray-600">Resistência comprovada que não oxida e não embaça.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-[#25D366] hover:bg-emerald-500 text-white font-black text-base shadow-xl shadow-black/25 transition-all duration-300 hover:scale-105 active:scale-95 border border-emerald-300/30"
+          >
+            <span>Falar com Especialista no WhatsApp</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

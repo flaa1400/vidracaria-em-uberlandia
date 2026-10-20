@@ -1,0 +1,89 @@
+---
+import { NEIGHBORHOODS } from '../data/neighborhoodsData';
+import { SITE_CONFIG } from '../data/config';
+
+// Highlight 20 strategic neighborhoods for the homepage preview
+const topSlugs = [
+  'tubalina',
+  'granja-marileusa',
+  'santa-monica',
+  'martins',
+  'fundinho',
+  'jardim-karaiba',
+  'tibery',
+  'gavea',
+  'saraiva',
+  'umuarama',
+  'shopping-park',
+  'morada-da-colina',
+  'centro',
+  'lidice',
+  'patrimonio',
+  'jardim-patricia',
+  'mansour',
+  'luizote-de-freitas',
+  'planalto',
+  'presidente-roosevelt',
+];
+
+const featuredNeighborhoods = NEIGHBORHOODS.filter((n) => topSlugs.includes(n.slug)).slice(0, 20);
+---
+
+<section id="bairros" class="bg-gradient-to-b from-[#064E3B] via-[#043d2f] to-[#064E3B] text-white py-24 lg:py-32 border-b border-emerald-950 relative overflow-hidden">
+  <div class="container mx-auto px-6 lg:px-12 relative z-10">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-white/10 text-emerald-200 text-xs font-black uppercase tracking-wider mb-4 border border-white/20">
+        Cobertura em Todos os Bairros
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tighter mb-6">
+        Vidraçaria em Uberlândia com Atendimento Rápido em Todos os Bairros
+      </h2>
+      <p class="text-base sm:text-lg text-emerald-100 leading-relaxed font-normal">
+        Para você que procura por Vidraçaria em Uberlândia com atendimento perto de você, oferecemos deslocamento imediato com o vidraceiro mais próximo para residências, condomínios fechados e empresas com medição a laser gratuita.
+      </p>
+    </div>
+
+    <!-- Grid de Bairros com Links para suas Páginas Próprias -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+      {featuredNeighborhoods.map((bairro) => (
+        <a
+          href={`/bairros/${bairro.slug}`}
+          class={`p-4 rounded-2xl border transition-all duration-300 hover:scale-105 flex flex-col justify-between ${
+            bairro.slug === 'tubalina'
+              ? 'bg-white text-gray-900 border-white shadow-xl ring-2 ring-emerald-300'
+              : 'bg-white/10 text-white border-white/15 hover:bg-white hover:text-gray-900 group backdrop-blur-sm'
+          }`}
+        >
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-sm">{bairro.slug === 'tubalina' ? '⭐' : '📍'}</span>
+            <span class={`text-sm font-black leading-tight ${bairro.slug === 'tubalina' ? 'text-secondary' : 'text-white group-hover:text-gray-900'}`}>
+              {bairro.name}
+            </span>
+          </div>
+          <span class={`text-[11px] font-medium ${bairro.slug === 'tubalina' ? 'text-gray-600' : 'text-emerald-200 group-hover:text-gray-500'}`}>
+            {bairro.zone} • {bairro.time}
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <!-- Botão de Ação para Ver Todos os 73 Bairros -->
+    <div class="mt-14 text-center">
+      <a
+        href="/bairros"
+        class="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-white text-secondary hover:bg-emerald-50 font-black text-base shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 border border-white"
+      >
+        <span>Ver Todos os 73 Bairros de Uberlândia</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <!-- Aviso de Atendimento em Branco com Alto Contraste -->
+    <div class="mt-10 max-w-2xl mx-auto text-center p-6 rounded-2xl bg-white/10 border border-white/20 text-white shadow-xl backdrop-blur-md">
+      <p class="text-sm font-medium text-emerald-100">
+        Não encontrou seu bairro no destaque acima? Atendemos 100% da cidade de Uberlândia e condomínios da região com medição sem taxa de visita.
+      </p>
+    </div>
+  </div>
+</section>

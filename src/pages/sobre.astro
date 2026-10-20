@@ -1,0 +1,291 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../data/config';
+
+const pillars = [
+  {
+    icon: "🎯",
+    title: "Nossa Missão",
+    desc: "Transformar espaços residenciais e corporativos em Uberlândia através de soluções em vidros temperados e esquadrias de alta precisão, aliando sofisticação estética, segurança estrutural e preço justo.",
+  },
+  {
+    icon: "👁️",
+    title: "Nossa Visão",
+    desc: "Ser reconhecida como a vidraçaria mais confiável e recomendada do Triângulo Mineiro, sendo o parceiro de escolha para arquitetos, construtores e famílias exigentes.",
+  },
+  {
+    icon: "⭐",
+    title: "Nossos Valores",
+    desc: "Pontualidade britânica, transparência nos orçamentos, compromisso inegociável com a integridade física de nossos colaboradores e clientes, e acabamento de alto padrão sem atalhos.",
+  },
+];
+
+const safetyStandards = [
+  {
+    rule: "NR-18",
+    title: "Segurança na Construção Civil",
+    desc: "Todos os nossos instaladores trabalham com equipamentos de proteção individual (EPIs completos), treinamento para trabalho em altura (NR-35) e respeito rigoroso às normas do canteiro de obras.",
+  },
+  {
+    rule: "ABNT NBR 14207",
+    title: "Boxes de Banheiro Certificados",
+    desc: "Instalação exclusiva de vidros temperados 8mm homologados pelo Inmetro, fixadores de segurança e vedações anti-vazamento.",
+  },
+  {
+    rule: "ABNT NBR 14718",
+    title: "Guarda-Corpos e Corrimãos",
+    desc: "Cálculo estrutural para escadas e sacadas com vidros laminados e fixações em aço inox 304/316 que suportam altas cargas de impacto.",
+  },
+  {
+    rule: "ABNT NBR 16259",
+    title: "Envidraçamento de Sacadas",
+    desc: "Cortinas de vidro com laudo de ensaio mecânico, suportando as maiores pressões de vento registradas em edifícios de Uberlândia.",
+  },
+];
+---
+
+<Layout
+  title={`Sobre a ${SITE_CONFIG.name} | História e Tradição em Uberlândia`}
+  description={`Conheça a história da ${SITE_CONFIG.name}, nossa sede no Tubalina, compromisso com as normas ABNT e atendimento ágil em toda Uberlândia.`}
+>
+  <main class="bg-white">
+    <!-- Header Hero Section with Respiro py-24 lg:py-32 e Escala Controlada -->
+    <section class="bg-gray-50/70 border-b border-gray-100 py-24 lg:py-32">
+      <div class="container mx-auto px-6 lg:px-12 text-center max-w-4xl">
+        <span class="inline-block py-1.5 px-4 rounded-full bg-blue-100 text-secondary text-xs font-black uppercase tracking-wider mb-6">
+          Institucional • Tradição & Propósito
+        </span>
+
+        <!-- Hierarquia e Escala Elegante: h1 compacto e imponente com mb-16 -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tighter leading-tight mb-16">
+          Conheça a História e o Padrão da Vidraçaria Axis Glass
+        </h1>
+
+        <p class="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-medium">
+          Nossa trajetória une a tradição do trabalho bem feito à mais moderna tecnologia em vidros temperados, esquadrias e espelhos decorativos.
+        </p>
+      </div>
+    </section>
+
+    <!-- 1. Nossa História: Seção Visual com Respiro py-24 lg:py-32 e Padding p-10/p-12 -->
+    <section class="py-24 lg:py-32 border-b border-gray-100">
+      <div class="container mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+          
+          <div class="lg:col-span-6">
+            <span class="text-xs font-black uppercase tracking-wider text-secondary mb-3 block">
+              Desde o Primeiro Corte de Vidro
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight tracking-tight mb-6">
+              Nossa História: Uma Década Construindo Relações de Confiança em Uberlândia
+            </h2>
+            <div class="space-y-5 text-gray-600 text-base sm:text-lg leading-relaxed font-normal">
+              <p>
+                A Vidraçaria Axis Glass nasceu da percepção de que a cidade precisava de uma empresa que combinasse agilidade no atendimento comercial e primor artesanal na execução técnica.
+              </p>
+              <p>
+                O que começou como uma pequena oficina vidreira rapidamente se expandiu para atender as demandas exigentes de empreendimentos verticais, condomínios fechados e projetos de arquitetura de alto padrão em bairros como <em>Granja Marileusa, Santa Mônica, Jardim Karaíba, Altamira, Fundinho e Centro</em>.
+              </p>
+              <p>
+                Ao longo dos anos, modernizamos todo o nosso ferramental para medição computadorizada a laser e consolidamos parcerias estratégicas com as maiores fabricantes de vidros do país (Cebrace e Guardian). Hoje, celebramos mais de 3.500 projetos concluídos com índice recorde de recomendação.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Visual com Padding p-10/p-12 e DITADURA DO CONTRASTE (text-white/text-gray-100) -->
+          <div class="lg:col-span-6">
+            <div class="bg-gradient-to-br from-slate-900 via-secondary to-slate-950 text-white rounded-3xl p-10 lg:p-12 shadow-2xl shadow-secondary/20 relative overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95">
+              <span class="inline-block py-1.5 px-3.5 rounded-lg bg-yellow-400 text-gray-900 text-xs font-black uppercase tracking-wider mb-8 shadow-sm">
+                Marcos da Empresa
+              </span>
+              
+              <ul class="space-y-6">
+                <li class="flex items-start gap-4">
+                  <span class="w-10 h-10 rounded-xl bg-white/10 text-primary flex items-center justify-center shrink-0 font-black text-sm border border-white/10">
+                    01
+                  </span>
+                  <div>
+                    <h4 class="text-lg font-black text-white mb-1">Fundação e Primeiras Obras</h4>
+                    <p class="text-xs sm:text-sm text-gray-100 font-normal">Início das operações com foco em boxes e espelhos sob medida para lares de Uberlândia.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span class="w-10 h-10 rounded-xl bg-white/10 text-primary flex items-center justify-center shrink-0 font-black text-sm border border-white/10">
+                    02
+                  </span>
+                  <div>
+                    <h4 class="text-lg font-black text-white mb-1">Pioneirismo em Cortinas de Vidro</h4>
+                    <p class="text-xs sm:text-sm text-gray-100 font-normal">Especialização no sistema retrátil de sacadas conforme as exigências da NBR 16259.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span class="w-10 h-10 rounded-xl bg-white/10 text-primary flex items-center justify-center shrink-0 font-black text-sm border border-white/10">
+                    03
+                  </span>
+                  <div>
+                    <h4 class="text-lg font-black text-white mb-1">Liderança e Medição a Laser</h4>
+                    <p class="text-xs sm:text-sm text-gray-100 font-normal">Frota própria e equipamentos calibrados que garantem precisão milimétrica em 100% das vistorias.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Missão, Visão e Valores: Grid Icônico com Respiro py-24 lg:py-32 e p-10/p-12 -->
+    <section class="py-24 lg:py-32 bg-gray-50/60 border-b border-gray-100">
+      <div class="container mx-auto px-6 lg:px-12">
+        <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+          <span class="inline-block py-1.5 px-4 rounded-full bg-blue-100 text-secondary text-xs font-black uppercase tracking-wider mb-4">
+            Diretrizes Corporativas
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight tracking-tight">
+            Missão, Visão e Valores
+          </h2>
+          <p class="text-base sm:text-lg text-gray-600 mt-4 font-normal">
+            Princípios sólidos que guiam cada corte de vidro, cada parafuso instalado e cada aperto de mão.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 max-w-6xl mx-auto">
+          {pillars.map((pillar) => (
+            <div class="bg-white rounded-3xl p-10 lg:p-12 border border-gray-100 shadow-sm hover:shadow-2xl hover:border-secondary/20 transition-all duration-300 hover:scale-105 active:scale-95 flex flex-col justify-between group">
+              <div>
+                <div class="w-16 h-16 rounded-2xl bg-yellow-100/70 text-gray-900 text-3xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform">
+                  {pillar.icon}
+                </div>
+                <h3 class="text-2xl font-black text-gray-900 mb-4 tracking-tight">
+                  {pillar.title}
+                </h3>
+                <p class="text-gray-600 text-base leading-relaxed font-normal">
+                  {pillar.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Compromisso com a Segurança e NR-18: DITADURA DO CONTRASTE (text-white/text-gray-100 / títulos text-primary) -->
+    <section class="py-24 lg:py-32 bg-slate-900 text-white border-b border-gray-800">
+      <div class="container mx-auto px-6 lg:px-12">
+        <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+          <span class="inline-block py-1.5 px-4 rounded-full bg-yellow-400/20 text-primary text-xs font-black uppercase tracking-wider mb-4 border border-yellow-400/30">
+            Conformidade & Rigor Técnico
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+            Compromisso com a Segurança e <span class="text-primary">Normas Técnicas</span>
+          </h2>
+          <!-- DITADURA DO CONTRASTE: text-gray-100 -->
+          <p class="text-base sm:text-lg text-gray-100 mt-4 leading-relaxed font-normal">
+            Vidro é um elemento arquitetônico que exige respeito absoluto à física e às normas vigentes. Na Vidraçaria Axis Glass, segurança não é um diferencial: é pré-requisito.
+          </p>
+        </div>
+
+        <!-- Grid de Normas com Padding p-10/p-12 e DITADURA DO CONTRASTE -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
+          {safetyStandards.map((item) => (
+            <div class="bg-slate-800/90 rounded-3xl p-10 lg:p-12 border border-slate-700/80 shadow-xl hover:border-primary/50 transition-all duration-300 hover:scale-105 active:scale-95 flex flex-col justify-between group">
+              <div>
+                <span class="inline-block py-1 px-3 rounded-md bg-secondary text-primary font-black text-xs uppercase tracking-wider mb-4 border border-blue-700">
+                  {item.rule}
+                </span>
+                <h3 class="text-2xl font-black text-primary mb-3 tracking-tight">
+                  {item.title}
+                </h3>
+                <!-- DITADURA DO CONTRASTE: text-gray-100 -->
+                <p class="text-gray-100 text-base leading-relaxed font-normal">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Banner de Manutenção Preventiva: DITADURA DO CONTRASTE (text-gray-100) -->
+        <div class="mt-16 bg-slate-800/70 border border-slate-700 rounded-3xl p-8 sm:p-10 text-center max-w-4xl mx-auto shadow-lg">
+          <h4 class="text-xl font-black text-primary mb-2 tracking-tight">
+            Manutenção Preventiva e Assistência Técnica Permanente
+          </h4>
+          <p class="text-sm text-gray-100 max-w-2xl mx-auto font-normal">
+            Disponibilizamos planos de revisão periódica de roldanas, guias e vedações de silicone para condomínios residenciais e comerciais em toda Uberlândia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Nossa Equipe & Atendimento Humanizado: Seção com Respiro py-24 lg:py-32 -->
+    <section class="py-24 lg:py-32 bg-white">
+      <div class="container mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+          
+          <div class="lg:col-span-6 order-2 lg:order-1">
+            <div class="bg-gray-50 rounded-3xl p-10 lg:p-12 border border-gray-100 shadow-sm space-y-6">
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-gray-100 shadow-sm transition-all duration-300 hover:scale-105">
+                <div class="w-12 h-12 rounded-2xl bg-secondary text-primary flex items-center justify-center font-black text-xl shadow-sm">
+                  👨‍🔧
+                </div>
+                <div>
+                  <h4 class="text-base font-black text-gray-900">Equipe Própria e Uniformizada</h4>
+                  <p class="text-xs text-gray-600">Zero terceirização precarizada. Técnicos registrados e de confiança.</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-gray-100 shadow-sm transition-all duration-300 hover:scale-105">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-100 text-yellow-800 flex items-center justify-center font-black text-xl shadow-sm">
+                  🧹
+                </div>
+                <div>
+                  <h4 class="text-base font-black text-gray-900">Instalação Limpa e Organizada</h4>
+                  <p class="text-xs text-gray-600">Proteção de pisos e limpeza completa do ambiente após o término do serviço.</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-gray-100 shadow-sm transition-all duration-300 hover:scale-105">
+                <div class="w-12 h-12 rounded-2xl bg-blue-50 text-secondary flex items-center justify-center font-black text-xl shadow-sm">
+                  💬
+                </div>
+                <div>
+                  <h4 class="text-base font-black text-gray-900">Atendimento Humanizado</h4>
+                  <p class="text-xs text-gray-600">Comunicação clara pelo WhatsApp com fotos do andamento e pontualidade no cronograma.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 order-1 lg:order-2">
+            <span class="text-xs font-black uppercase tracking-wider text-secondary mb-3 block">
+              Gente que Cuida da sua Casa
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight tracking-tight mb-6">
+              Nossa Equipe: O Valor do Respeito e do Cuidado com seu Lar
+            </h2>
+            <div class="space-y-4 text-gray-600 text-base sm:text-lg leading-relaxed mb-8 font-normal">
+              <p>
+                Entendemos que receber prestadores de serviço dentro da sua casa exige total segurança e tranquilidade. Por isso, todos os profissionais da Vidraçaria Axis Glass passam por criteriosa seleção, capacitação contínua e trabalham devidamente uniformizados e identificados.
+              </p>
+              <p>
+                Nossos consultores técnicos não querem apenas "vender vidros": eles escutam suas necessidades, sugerem as opções mais harmônicas para seu espaço e fornecem explicações detalhadas sobre espessuras, películas e cuidados de conservação.
+              </p>
+            </div>
+
+            <!-- Botão de Ação com Micro-interações e Sombra Colorida -->
+            <a
+              href={SITE_CONFIG.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-3 p-6 sm:px-10 sm:py-6 rounded-2xl bg-[#25D366] hover:bg-emerald-600 text-white font-black text-base shadow-xl shadow-green-600/25 transition-all duration-300 hover:scale-105 active:scale-95"
+            >
+              <span>Falar com Nossa Equipe no WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

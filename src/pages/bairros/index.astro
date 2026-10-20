@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { NEIGHBORHOODS } from '../../data/neighborhoodsData';
+import { SITE_CONFIG } from '../../data/config';
+
+// Group neighborhoods by Zone
+const zones = ['Centro', 'Zona Sul', 'Zona Leste', 'Zona Oeste', 'Zona Norte'];
+const groupedByZone = zones.map((zone) => ({
+  zone,
+  neighborhoods: NEIGHBORHOODS.filter((n) => n.zone === zone),
+}));
+---
+
+<Layout
+  title={`Vidraçaria em Uberlândia: Bairros Atendidos | Vidros e Esquadrias`}
+  description={`Confira todos os bairros atendidos pela Vidraçaria Axis Glass em Uberlândia - MG. Mais de 70 bairros com medição a laser gratuita, box até o teto, cortinas de vidro e esquadrias de alumínio.`}
+>
+  <main class="bg-white">
+    <!-- Hero da Página de Bairros -->
+    <section class="relative bg-gradient-to-b from-[#064E3B] via-[#043d2f] to-[#02281e] overflow-hidden py-20 lg:py-28 text-white border-b border-emerald-950">
+      <div class="container mx-auto px-6 lg:px-12 relative z-10 text-center max-w-4xl">
+        <nav class="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-200 mb-6" aria-label="Navegação">
+          <a href="/" class="hover:text-white transition-colors">Início</a>
+          <span>/</span>
+          <span class="text-white font-bold">Bairros de Uberlândia</span>
+        </nav>
+
+        <span class="inline-block py-1.5 px-4 rounded-full bg-white/10 text-emerald-200 text-xs font-black uppercase tracking-wider mb-6 border border-white/20">
+          Cobertura em 100% da Cidade
+        </span>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-tight mb-6">
+          Vidraçaria em Todos os Bairros de Uberlândia
+        </h1>
+
+        <p class="text-base sm:text-lg text-emerald-100 max-w-2xl mx-auto leading-relaxed font-normal mb-8">
+          Nossa sede está localizada no bairro Tubalina e atendemos residências, apartamentos e empresas em mais de 70 bairros com medição a laser gratuita e equipe técnica própria.
+        </p>
+
+        <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 text-emerald-100 text-sm border border-white/20">
+          <span>📍 73 Bairros Catalogados</span>
+          <span>•</span>
+          <span>⚡ Visita Técnica Gratuita</span>
+          <span>•</span>
+          <span>🛡️ Garantia Documentada</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista Agrupada por Regiões de Uberlândia -->
+    <section class="py-20 lg:py-28 border-b border-gray-100">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-black uppercase tracking-wider text-secondary mb-3 block">
+            Guia Completo de Localidades
+          </span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight mb-4">
+            Escolha o Seu Bairro para Ver Serviços e Solicitar Orçamento
+          </h2>
+          <p class="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
+            Cada região possui atendimento personalizado e deslocamento técnico rápido com veículos equipados para medição a laser.
+          </p>
+        </div>
+
+        <div class="space-y-16">
+          {groupedByZone.map((group) => (
+            <div class="bg-gray-50/80 rounded-3xl p-8 lg:p-10 border border-gray-100 shadow-sm">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-gray-200">
+                <div>
+                  <h3 class="text-2xl font-black text-gray-900 tracking-tight flex items-center gap-3">
+                    <span class="w-3 h-3 rounded-full bg-primary inline-block"></span>
+                    <span>{group.zone} de Uberlândia</span>
+                  </h3>
+                  <span class="text-xs text-gray-500 font-medium">
+                    {group.neighborhoods.length} bairros atendidos com medição a laser
+                  </span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {group.neighborhoods.map((bairro) => (
+                  <a
+                    href={`/bairros/${bairro.slug}`}
+                    class="p-4 rounded-2xl bg-white border border-gray-200/80 hover:border-primary hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 group flex flex-col justify-between"
+                  >
+                    <div>
+                      <div class="flex items-center justify-between mb-2">
+                        <strong class="text-sm font-black text-gray-900 group-hover:text-primary transition-colors">
+                          {bairro.name}
+                        </strong>
+                        <span class="text-xs text-gray-400 group-hover:text-primary transition-transform group-hover:translate-x-1">
+                          →
+                        </span>
+                      </div>
+                      <span class="text-[11px] text-gray-500 block leading-tight">
+                        {bairro.type}
+                      </span>
+                    </div>
+                    <span class="mt-3 pt-2 border-t border-gray-100 text-[10px] font-bold text-secondary uppercase tracking-wider">
+                      Ver Vidraçaria no Bairro
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA de Contato -->
+    <section class="py-20 bg-gradient-to-br from-[#064E3B] to-[#02281e] text-white text-center">
+      <div class="container mx-auto px-6 lg:px-12 max-w-3xl">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 tracking-tight">
+          Não Encontrou Seu Bairro na Lista?
+        </h2>
+        <p class="text-emerald-100 text-base mb-8 leading-relaxed font-normal">
+          Atendemos 100% de Uberlândia, incluindo condomínios fechados e zonas rurais próximas. Fale agora com nossa equipe no WhatsApp!
+        </p>
+        <a
+          href={SITE_CONFIG.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#25D366] hover:bg-emerald-500 text-white font-black text-base shadow-xl transition-all duration-300 hover:scale-105 active:scale-95"
+        >
+          <span>Consultar Meu Endereço no WhatsApp</span>
+          <span>→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

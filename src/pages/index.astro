@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import WhyBest from '../components/WhyBest.astro';
+import Advantages from '../components/Advantages.astro';
+import FAQ from '../components/FAQ.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Neighborhoods from '../components/Neighborhoods.astro';
+import MapSection from '../components/MapSection.astro';
+import { SITE_CONFIG } from '../data/config';
+---
+
+<Layout
+  title={`Vidraçaria em Uberlândia | Box, Esquadrias e Cortina de Vidro`}
+  description={`Procurando uma Vidraçaria em Uberlândia com atendimento rápido perto de você? A Axis Glass oferece soluções sob medida em vidros e esquadrias, box para banheiro e cortinas de vidro. Conte com o vidraceiro mais próximo e solicite seu orçamento!`}
+>
+  <main>
+    <!-- 1ª Seção: Hero com Palavra-Chave Principal sobre Vidraçaria em Uberlândia, WhatsApp e Redes Sociais -->
+    <Hero />
+
+    <!-- 2ª Seção: Apresentação dos Serviços Especializados -->
+    <Services />
+
+    <!-- 3ª Seção: Por Que Somos a Melhor Vidraçaria de Uberlândia -->
+    <WhyBest />
+
+    <!-- 4ª Seção: Vantagens de Contratar a Vidraçaria Axis Glass -->
+    <Advantages />
+
+    <!-- 5ª Seção: Perguntas Frequentes sobre Vidraçaria em Uberlândia (com Schema FAQPage) -->
+    <FAQ />
+
+    <!-- 6ª Seção: Avaliações de Clientes em Uberlândia -->
+    <Testimonials />
+
+    <!-- 7ª Seção: Bairros Atendidos em Uberlândia -->
+    <Neighborhoods />
+
+    <!-- 8ª Seção: Mapa do Google em Tamanho Médio (Av. Sílvio Rugani, 52 - Tubalina) -->
+    <MapSection />
+  </main>
+</Layout>

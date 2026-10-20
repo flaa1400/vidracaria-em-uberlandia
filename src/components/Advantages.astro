@@ -1,0 +1,87 @@
+---
+import { SITE_CONFIG } from '../data/config';
+
+const whatsappUrl = SITE_CONFIG.whatsappUrl;
+
+const advantages = [
+  {
+    icon: '⚡',
+    title: 'Medição com o Vidraceiro mais próximo',
+    description: 'Vamos até a sua residência ou empresa em qualquer bairro de Uberlândia para conferir o vão a laser sem cobrar visita.',
+  },
+  {
+    icon: '📱',
+    title: 'Atendimento Rápido no WhatsApp',
+    description: 'Envie fotos, medidas ou plantas diretamente pelo WhatsApp e receba orientações e estimativas com agilidade.',
+  },
+  {
+    icon: '🛡️',
+    title: 'Vidros e esquadrias com Selo Inmetro',
+    description: 'Segurança não se negocia. Utilizamos vidros temperados e laminados homologados pelas normas ABNT NBR 14207 e 14718.',
+  },
+  {
+    icon: '🧹',
+    title: 'Instalação Limpa e Cuidadosa',
+    description: 'Respeitamos seu ambiente: furação com aspirador, calafetação precisa e limpeza completa após o término da montagem.',
+  },
+  {
+    icon: '💰',
+    title: 'Preço Justo em Vidraçaria Uberlândia',
+    description: 'Orçamento transparente de fábrica com todas as ferragens, vedações e mão de obra inclusas, sem custos ocultos.',
+  },
+  {
+    icon: '🤝',
+    title: 'Garantia e Assistência Técnica',
+    description: 'Garantia documentada de vedação e funcionamento, além de suporte contínuo para revisões e manutenções.',
+  },
+];
+---
+
+<section class="bg-white text-gray-900 relative overflow-hidden py-24 lg:py-32 border-b border-gray-100">
+  <div class="container mx-auto px-6 lg:px-12 relative z-10">
+    <!-- Cabeçalho da Seção -->
+    <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-emerald-50 text-secondary text-xs font-black uppercase tracking-wider mb-4 border border-emerald-200">
+        Vantagens Exclusivas
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight tracking-tighter mb-6">
+        Vantagens de Escolher uma Vidraçaria Perto de Mim em Uberlândia-MG.
+      </h2>
+      <p class="text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
+        Para quem busca uma Vidraçaria esquadrias de confiança e soluções duráveis em vidros e esquadrias, reunimos os diferenciais que garantem tranquilidade e pontualidade da fabricação até a montagem final.
+      </p>
+    </div>
+
+    <!-- Grid de 6 Vantagens -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {advantages.map((item) => (
+        <div class="bg-white rounded-3xl p-8 border border-green-100 shadow-sm hover:shadow-2xl hover:border-primary/40 transition-all duration-300 hover:scale-105 active:scale-95 group flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-3xl mb-5 flex items-center justify-center border border-emerald-100 group-hover:scale-110 transition-transform">
+              {item.icon}
+            </div>
+            <h3 class="text-xl font-black text-gray-900 mb-3 tracking-tight group-hover:text-primary transition-colors">
+              {item.title}
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed font-normal">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA de Fechamento da Seção de Vantagens -->
+    <div class="mt-16 text-center">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#25D366] hover:bg-emerald-500 text-white font-black text-base shadow-xl shadow-green-600/25 transition-all duration-300 hover:scale-105 active:scale-95"
+      >
+        <span>Aproveitar essas Vantagens no Meu Projeto</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,308 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { NEIGHBORHOODS } from '../../../data/neighborhoodsData';
+import { SERVICES_LIST } from '../../../data/servicesData';
+import { SITE_CONFIG } from '../../../data/config';
+import ServiceIcon from '../../../components/ServiceIcon.astro';
+import { generateNeighborhoodHomeContent } from '../../../utils/seoContentGenerator';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return NEIGHBORHOODS.map((neighborhood) => ({
+    params: { bairro: neighborhood.slug },
+    props: { neighborhood },
+  }));
+}
+
+const { neighborhood } = Astro.props;
+const content = generateNeighborhoodHomeContent(neighborhood);
+
+const whatsappBairroUrl = `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(
+  `Olá, vim do site Vidraçaria Axis Glass e gostaria de solicitar um orçamento para meu imóvel no bairro ${neighborhood.name} em Uberlândia.`
+)}`;
+
+const schemaLocal = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: `Vidraçaria Axis Glass - Atendimento ${neighborhood.name}`,
+  description: content.metaDescription,
+  url: `${SITE_CONFIG.siteUrl}/bairros/${neighborhood.slug}`,
+  telephone: SITE_CONFIG.whatsapp,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE_CONFIG.address.streetAddress,
+    addressLocality: 'Uberlândia',
+    addressRegion: 'MG',
+    addressCountry: 'BR',
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: `${neighborhood.name}, Uberlândia - MG`,
+  },
+  priceRange: '$$',
+};
+
+const schemaFAQ = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: content.faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+};
+---
+
+<Layout
+  title={content.title}
+  description={content.metaDescription}
+>
+  <main class="bg-white">
+    <!-- 1. Hero do Bairro -->
+    <section class="relative bg-gradient-to-b from-[#064E3B] via-[#043d2f] to-[#02281e] overflow-hidden py-24 lg:py-32 border-b border-emerald-950 text-white">
+      <div class="container mx-auto px-6 lg:px-12 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Breadcrumb -->
+          <nav class="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-200 mb-8" aria-label="Navegação">
+            <a href="/" class="hover:text-white transition-colors">Início</a>
+            <span>/</span>
+            <a href="/bairros" class="hover:text-white transition-colors">Bairros</a>
+            <span>/</span>
+            <span class="text-white font-bold">{neighborhood.name}</span>
+          </nav>
+
+          <!-- Badge do Bairro -->
+          <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-lg mb-8">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs sm:text-sm font-black text-emerald-200 uppercase tracking-wider">
+              {neighborhood.zone} de Uberlândia • Atendimento Técnico Especializado
+            </span>
+          </div>
+
+          <!-- H1 Principal do Bairro -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-tight mb-8">
+            {content.h1}
+          </h1>
+
+          <!-- Texto de Introdução Localizado -->
+          <p class="text-base sm:text-lg lg:text-xl text-emerald-100 leading-relaxed max-w-3xl mx-auto font-medium mb-10">
+            {content.localContext}
+          </p>
+
+          <!-- Botão de Ação WhatsApp -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={whatsappBairroUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-3.5 px-10 py-5 rounded-2xl bg-[#25D366] hover:bg-emerald-500 text-white font-black text-base sm:text-lg shadow-2xl shadow-black/40 transition-all duration-300 hover:scale-105 active:scale-95 border border-emerald-300/30"
+            >
+              <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+              <span>Pedir Orçamento no {neighborhood.name}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Destaques Locais do Bairro -->
+    <section class="py-16 bg-emerald-50/50 border-b border-emerald-100">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {neighborhood.highlights.map((item) => (
+            <div class="p-6 rounded-2xl bg-white border border-emerald-100 shadow-sm flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-100 text-secondary flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">
+                ✓
+              </span>
+              <span class="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed">
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Catálogo de Todos os Serviços no Bairro (Links Próprios) -->
+    <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50/90 via-emerald-50/30 to-gray-50/90 border-b border-emerald-100/80 relative">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+          <span class="inline-block py-1.5 px-4 rounded-full bg-emerald-100 text-secondary text-xs font-black uppercase tracking-wider mb-4 border border-emerald-200 shadow-xs">
+            Catálogo Completo
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight tracking-tighter mb-6">
+            Serviços de Vidraçaria Disponíveis no {neighborhood.name}
+          </h2>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
+            Clique em cada serviço para conhecer modelos, especificações técnicas e opções sob medida para seu imóvel no bairro {neighborhood.name}.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {SERVICES_LIST.map((servico) => (
+            <div class="bg-white rounded-3xl p-8 sm:p-9 border-2 border-emerald-100/90 shadow-[0_10px_30px_-5px_rgba(6,78,59,0.07)] hover:shadow-[0_20px_45px_-5px_rgba(6,78,59,0.16)] hover:border-emerald-500/70 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group relative overflow-hidden">
+              <!-- Barra de Destaque Superior do Card -->
+              <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-600 via-primary to-emerald-400 group-hover:h-2 transition-all"></div>
+
+              <div>
+                <div class="flex items-start justify-between gap-4 mb-5 pt-1">
+                  <span class="inline-block py-1.5 px-3 rounded-xl bg-emerald-50 text-secondary border border-emerald-200/90 text-xs font-black uppercase tracking-wider shadow-xs">
+                    {servico.badge}
+                  </span>
+                  <div class="w-13 h-13 rounded-2xl bg-emerald-50 text-secondary flex items-center justify-center shrink-0 border border-emerald-200/80 group-hover:scale-110 group-hover:bg-[#064E3B] group-hover:text-emerald-300 transition-all duration-300 shadow-sm p-3">
+                    <ServiceIcon slug={servico.slug} class="w-6 h-6" />
+                  </div>
+                </div>
+
+                <h3 class="text-xl font-black text-gray-900 leading-tight mb-3 group-hover:text-primary transition-colors tracking-tight">
+                  <a href={`/bairros/${neighborhood.slug}/${servico.slug}`}>
+                    {servico.title} no {neighborhood.name}
+                  </a>
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed mb-6 font-normal">
+                  {servico.description}
+                </p>
+
+                {servico.features && servico.features.length > 0 && (
+                  <div class="space-y-2 mb-6">
+                    {servico.features.slice(0, 3).map((feat) => (
+                      <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-emerald-50/50 border border-emerald-100/80 text-xs text-gray-800 font-medium group-hover:bg-emerald-50/80 transition-colors">
+                        <span class="w-5 h-5 rounded-full bg-emerald-200/80 text-secondary flex items-center justify-center shrink-0 font-black text-[10px]">
+                          ✓
+                        </span>
+                        <span class="line-clamp-1">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div class="pt-5 border-t border-emerald-100/80 mt-auto">
+                <a
+                  href={`/bairros/${neighborhood.slug}/${servico.slug}`}
+                  class="inline-flex items-center justify-between w-full font-black text-xs sm:text-sm text-secondary group-hover:text-primary transition-colors"
+                >
+                  <span>Conhecer {servico.title}</span>
+                  <span class="w-8 h-8 rounded-full bg-emerald-100 text-secondary group-hover:bg-primary group-hover:text-white flex items-center justify-center text-xs font-bold transition-all shadow-xs">
+                    →
+                  </span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Por Que Escolher a Axis Glass no Bairro -->
+    <section class="bg-gradient-to-b from-[#064E3B] via-[#043d2f] to-[#064E3B] text-white py-24 lg:py-32 border-b border-emerald-950">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <span class="text-xs font-black uppercase tracking-wider text-emerald-300 mb-3 block">
+            Qualidade Comprovada
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tighter mb-6">
+            Por Que Somos Referência de Vidraçaria no {neighborhood.name}?
+          </h2>
+          <p class="text-base sm:text-lg text-emerald-100 leading-relaxed font-normal">
+            Tratamos cada projeto com precisão técnica milimétrica, materiais certificados pelo Inmetro e respeito absoluto ao cronograma da sua obra.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-8 rounded-3xl bg-white text-gray-900 shadow-xl">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-secondary flex items-center justify-center font-black text-xl mb-6">
+              ⚡
+            </div>
+            <h3 class="text-xl font-black mb-3 tracking-tight">
+              Deslocamento em {neighborhood.time}
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Com sede no Tubalina, nossa equipe chega rapidamente ao bairro {neighborhood.name} para vistorias, ajustes finos e entregas pontuais.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-white text-gray-900 shadow-xl">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-secondary flex items-center justify-center font-black text-xl mb-6">
+              📐
+            </div>
+            <h3 class="text-xl font-black mb-3 tracking-tight">
+              Medição a Laser Gratuita
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Não cobramos taxa de deslocamento para o {neighborhood.name}. Conferimos esquadro, prumo e vãos com instrumentos de precisão óptica.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-white text-gray-900 shadow-xl">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-secondary flex items-center justify-center font-black text-xl mb-6">
+              🛡️
+            </div>
+            <h3 class="text-xl font-black mb-3 tracking-tight">
+              Garantia e Pós-Venda
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Garantia documentada em contrato de vedação e funcionamento de ferragens, além de assistência contínua para nossos clientes no {neighborhood.name}.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Perguntas Frequentes do Bairro -->
+    <section class="py-24 lg:py-32 bg-white">
+      <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+        <div class="text-center mb-16">
+          <span class="inline-block py-1.5 px-4 rounded-full bg-emerald-50 text-secondary text-xs font-black uppercase tracking-wider mb-4 border border-emerald-200">
+            Dúvidas Frequentes
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight tracking-tighter mb-6">
+            Perguntas Frequentes sobre Vidraçaria no {neighborhood.name}
+          </h2>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
+            Confira as principais informações para clientes no bairro {neighborhood.name} em Uberlândia.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          {content.faqs.map((faq) => (
+            <details class="group bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm open:ring-2 open:ring-secondary/40">
+              <summary class="flex items-center justify-between cursor-pointer list-none select-none font-black text-lg text-gray-900 group-hover:text-primary transition-colors">
+                <span class="pr-4">{faq.question}</span>
+                <span class="w-8 h-8 rounded-full bg-white text-secondary group-open:bg-primary group-open:text-white flex items-center justify-center shrink-0 transition-transform duration-300 group-open:rotate-180 text-sm font-bold shadow-sm">
+                  ▼
+                </span>
+              </summary>
+              <div class="pt-4 text-gray-600 text-base leading-relaxed font-normal border-t border-gray-200 mt-4">
+                <p>{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <div class="mt-14 text-center">
+          <a
+            href={whatsappBairroUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#25D366] hover:bg-emerald-500 text-white font-black text-base shadow-xl transition-all duration-300 hover:scale-105 active:scale-95"
+          >
+            <span>Falar com Técnico no WhatsApp para o {neighborhood.name}</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<!-- JSON-LD LocalBusiness & FAQ Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(schemaLocal)} />
+<script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />

@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../data/config';
+---
+
+<Layout
+  title={`Política de Privacidade | ${SITE_CONFIG.name}`}
+  description={`Política de Privacidade da ${SITE_CONFIG.name} em Uberlândia - MG. Saiba como coletamos e protegemos seus dados pessoais de acordo com a LGPD.`}
+>
+  <main class="bg-white">
+    <!-- Header Section -->
+    <section class="bg-brand-light/60 border-b border-gray-100 py-24 lg:py-32">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <!-- Breadcrumbs -->
+        <nav class="flex justify-center items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500 mb-8" aria-label="Navegação">
+          <a href="/" class="hover:text-primary transition-colors">Início</a>
+          <span>/</span>
+          <span class="text-gray-900 font-bold">Política de Privacidade</span>
+        </nav>
+
+        <span class="inline-block py-1.5 px-4 rounded-full bg-green-100 text-secondary text-xs font-black uppercase tracking-wider mb-4 border border-green-200">
+          Transparência & LGPD
+        </span>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tighter leading-tight mb-6">
+          Política de Privacidade
+        </h1>
+
+        <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-medium">
+          Última atualização: Outubro de 2026. Entenda como coletamos, protegemos e utilizamos as informações que você nos confia.
+        </p>
+      </div>
+    </section>
+
+    <!-- Legal Content Section -->
+    <section class="py-24 lg:py-32">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="bg-white rounded-3xl border border-green-100 p-8 sm:p-12 lg:p-16 shadow-xl shadow-green-950/5">
+          
+          <div class="space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg font-normal">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight pt-4">
+              1. Informações Gerais
+            </h2>
+            <p>
+              A <strong class="text-gray-900 font-bold">{SITE_CONFIG.name}</strong>, estabelecida na {SITE_CONFIG.address.fullFormatted}, tem o compromisso de proteger a privacidade e os dados pessoais de todos os clientes e visitantes de nosso site ({SITE_CONFIG.siteUrl}). Esta Política foi desenvolvida em conformidade com a <em>Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018)</em>.
+            </p>
+            <p>
+              Ao navegar em nosso portal, solicitar orçamentos através de nossos canais ou entrar em contato via WhatsApp ({SITE_CONFIG.whatsapp}), você declara estar ciente das práticas descritas neste documento.
+            </p>
+          </div>
+
+          <hr class="my-10 border-gray-100" />
+
+          <div class="space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg font-normal">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              2. Dados Coletados e Finalidade
+            </h2>
+            <p>
+              Coletamos estritamente as informações necessárias para viabilizar o atendimento comercial, elaboração de propostas e a execução de serviços técnicos em Uberlândia e região:
+            </p>
+            <ul class="list-disc list-inside space-y-2 ml-4">
+              <li><strong>Nome Completo:</strong> Para identificação e personalização do atendimento.</li>
+              <li><strong>Telefone e WhatsApp:</strong> Para envio de orçamentos, alinhamento técnico e agendamento de medição a laser.</li>
+              <li><strong>Bairro e Endereço da Obra:</strong> Para cálculo de logística e realização da vistoria técnica no seu imóvel.</li>
+              <li><strong>Detalhes do Projeto:</strong> Medidas aproximadas e preferências de materiais para estimativa de valores.</li>
+            </ul>
+          </div>
+
+          <hr class="my-10 border-gray-100" />
+
+          <div class="space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg font-normal">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              3. Compartilhamento e Segurança dos Dados
+            </h2>
+            <p>
+              A {SITE_CONFIG.name} <strong>não vende, aluga ou compartilha</strong> seus dados pessoais com terceiros para fins de marketing ou publicidade não solicitada. Seus dados são acessados exclusivamente por nossa equipe técnica e operacional responsável pelo seu atendimento.
+            </p>
+            <p>
+              Adotamos medidas técnicas e administrativas aptas a proteger seus dados pessoais contra acessos não autorizados, perdas, alterações ou qualquer forma de tratamento ilícito.
+            </p>
+          </div>
+
+          <hr class="my-10 border-gray-100" />
+
+          <div class="space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg font-normal">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              4. Direitos do Titular de Dados
+            </h2>
+            <p>
+              Em conformidade com a LGPD, você possui o direito de solicitar a qualquer momento a confirmação da existência de tratamento, o acesso aos seus dados, a correção de dados incompletos ou a eliminação dos seus dados de nossos cadastros comerciais.
+            </p>
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

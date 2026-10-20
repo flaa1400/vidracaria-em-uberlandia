@@ -1,0 +1,98 @@
+---
+import { SITE_CONFIG } from '../data/config';
+
+const faqs = [
+  {
+    q: 'Vocês atendem como vidraçaria em Uberlândia perto da minha região em todos os bairros?',
+    a: 'Sim! Atendemos residências, condomínios e estabelecimentos comerciais em toda a cidade de Uberlândia. Nossa base operacional fica no Tubalina e enviamos o vidraceiro mais próximo até o seu endereço para medição técnica a laser sem qualquer custo de deslocamento.',
+  },
+  {
+    q: 'Como solicitar o atendimento do vidraceiro mais próximo para consertos ou reformas?',
+    a: 'Se você precisa de uma vidraçaria com atendimento rápido perto de você para conserto de box de banheiro, troca de roldanas emperradas ou regulagem de cortinas de vidro, basta nos enviar uma mensagem pelo WhatsApp para agendamento imediato.',
+  },
+  {
+    q: 'Quais soluções uma empresa especializada em Vidraçaria esquadrias executa?',
+    a: 'Realizamos fabricação e montagem de vidros e esquadrias de alumínio completas sob medida: portas de correr, janelas acústicas, cortinas de vidro para sacadas, guarda-corpos e coberturas de segurança.',
+  },
+  {
+    q: 'Por que escolher a Axis Glass como sua Vidraçaria Uberlândia de referência?',
+    a: 'Porque unimos pontualidade de entrega, medição a laser precisa sem taxa de visita, vidros homologados com selo do Inmetro e garantia técnica contratual em todos os serviços.',
+  },
+  {
+    q: 'Qual a diferença entre vidro temperado e laminado e quando usar cada um?',
+    a: 'O vidro temperado passa por tratamento térmico que o torna até 5 vezes mais resistente que o vidro comum, ideal para box, portas e janelas. Já o vidro laminado é composto por lâminas coladas por película PVB que retém os pedaços em caso de impacto, sendo obrigatório em coberturas, telhados e guarda-corpos.',
+  },
+  {
+    q: 'Qual é o prazo médio para fabricação e instalação em Uberlândia?',
+    a: 'Para boxes de banheiro, espelhos e portas convencionais, o prazo médio é de 5 a 10 dias úteis após a medição a laser. Para esquadrias de alumínio sob medida, cortinas de vidro e coberturas, o prazo varia de 10 a 20 dias úteis formalizado em contrato.',
+  },
+];
+
+const schemaFAQ = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+---
+
+<section id="faq" class="bg-gradient-to-b from-[#064E3B] via-[#043d2f] to-[#064E3B] text-white py-24 lg:py-32 border-b border-emerald-950 relative overflow-hidden">
+  <div class="container mx-auto px-6 lg:px-12 max-w-4xl relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-16 lg:mb-20">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-white/10 text-emerald-200 text-xs font-black uppercase tracking-wider mb-4 border border-white/20">
+        Tire suas Dúvidas
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tighter mb-6">
+        Perguntas Frequentes sobre Vidraçaria em Uberlândia e Serviços de Vidros e Esquadrias
+      </h2>
+      <p class="text-base sm:text-lg text-emerald-100 leading-relaxed font-normal">
+        Respostas claras e transparentes para você planejar seu projeto com total segurança.
+      </p>
+    </div>
+
+    <!-- Accordion Interativo em Cartões Brancos para Contraste Total -->
+    <div class="space-y-4">
+      {faqs.map((item) => (
+        <details
+          class="group bg-white rounded-2xl p-6 sm:p-8 transition-all duration-300 shadow-lg open:ring-2 open:ring-emerald-400 text-gray-900"
+        >
+          <summary class="flex items-center justify-between cursor-pointer list-none select-none font-black text-lg sm:text-xl text-gray-900 group-hover:text-primary transition-colors">
+            <span class="pr-4">{item.q}</span>
+            <span class="w-8 h-8 rounded-full bg-emerald-50 text-secondary group-open:bg-primary group-open:text-white flex items-center justify-center shrink-0 transition-transform duration-300 group-open:rotate-180 text-sm font-bold">
+              ▼
+            </span>
+          </summary>
+          <div class="pt-4 text-gray-600 text-base leading-relaxed font-normal border-t border-gray-100 mt-4">
+            <p>{item.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Micro CTA no FAQ em Vidro Fosco Elegante -->
+    <div class="mt-14 text-center p-8 rounded-3xl bg-white/10 border border-white/20 text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur-md">
+      <div class="text-left">
+        <strong class="text-white text-base block font-bold">Ficou com alguma outra dúvida específica?</strong>
+        <span class="text-xs sm:text-sm text-emerald-200">Nossa equipe técnica atende prontamente no WhatsApp.</span>
+      </div>
+      <a
+        href={SITE_CONFIG.whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition-all duration-300 hover:scale-105 active:scale-95 shrink-0"
+      >
+        <span>Tirar Dúvida no WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- JSON-LD FAQPage Schema para Google Rich Snippets -->
+<script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />

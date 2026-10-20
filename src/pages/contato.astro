@@ -1,0 +1,266 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../data/config';
+
+const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(SITE_CONFIG.whatsappDefaultMessage)}`;
+---
+
+<Layout
+  title={`Fale Conosco & Orçamentos | ${SITE_CONFIG.name}`}
+  description={`Entre em contato com a ${SITE_CONFIG.name}. Solicite orçamento de vidros temperados, box e espelhos pelo WhatsApp ou envie uma mensagem no formulário.`}
+>
+  <main class="bg-white">
+    <!-- Header Hero Section with Respiro py-24 lg:py-32 e Escala Balanceada -->
+    <section class="bg-gray-50/70 border-b border-gray-100 py-24 lg:py-32">
+      <div class="container mx-auto px-6 lg:px-12 text-center max-w-4xl">
+        <span class="inline-block py-1.5 px-4 rounded-full bg-blue-100 text-secondary text-xs font-black uppercase tracking-wider mb-6">
+          Atendimento Direto & Sem Burocracia
+        </span>
+
+        <!-- Hierarquia de Título Obrigatória: H1 compacto e imponente com mb-16 -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tighter leading-tight mb-16">
+          Fale Conosco e Solicite seu Orçamento em Uberlândia
+        </h1>
+
+        <p class="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto font-medium">
+          Tire dúvidas técnicas, envie suas medidas aproximadas ou agende a visita com medição a laser gratuita no seu imóvel em qualquer bairro da cidade.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Contact & Form Section with Respiro py-24 lg:py-32 and Padding p-10/p-12 -->
+    <section class="py-24 lg:py-32 bg-white">
+      <div class="container mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 max-w-6xl mx-auto">
+          
+          <!-- Coluna 1: NAP Estruturado & WhatsApp Direto (5 colunas) -->
+          <div class="lg:col-span-5 flex flex-col justify-between gap-8">
+            
+            <!-- Card de Contato Imediato WhatsApp: DITADURA DO CONTRASTE (text-white/text-gray-100) -->
+            <div class="bg-gradient-to-br from-secondary via-blue-950 to-slate-950 rounded-3xl p-10 lg:p-12 text-white shadow-2xl shadow-secondary/30 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-primary text-gray-900 flex items-center justify-center font-black mb-6 shadow-md shadow-primary/20">
+                  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-black mb-3 tracking-tight text-white">Atendimento WhatsApp</h3>
+                <!-- DITADURA DO CONTRASTE: text-gray-100 -->
+                <p class="text-gray-100 text-sm leading-relaxed mb-8 font-normal">
+                  O canal mais prático para enviar fotos, plantas e medidas. Resposta quase imediata durante o expediente comercial.
+                </p>
+              </div>
+
+              <!-- Botão com micro-interações hover:scale-105 active:scale-95 -->
+              <div class="space-y-3">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-3 w-full p-6 sm:p-7 rounded-2xl bg-[#25D366] hover:bg-emerald-500 text-white font-black text-base shadow-xl shadow-black/25 transition-all duration-300 hover:scale-105 active:scale-95 text-center"
+                >
+                  <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                  <span>Chamar no WhatsApp Agora</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- NAP Estruturado com Tubalina -->
+            <div class="bg-brand-light/70 rounded-3xl p-8 sm:p-10 border border-green-200 space-y-6 shadow-sm" itemscope itemtype="https://schema.org/LocalBusiness">
+              <span class="text-xs font-black uppercase tracking-wider text-secondary block">
+                Dados Oficiais de Atendimento
+              </span>
+
+              <div>
+                <h4 class="text-xl font-black text-gray-900 tracking-tight" itemprop="name">{SITE_CONFIG.name}</h4>
+                <p class="text-xs text-gray-600 font-medium">Vidros Temperados, Esquadrias de Alumínio e Manutenções</p>
+              </div>
+              
+              <div class="flex items-start gap-4 text-sm text-gray-700" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <span class="text-secondary text-lg">📍</span>
+                <div>
+                  <strong class="text-gray-900 block font-bold">Endereço da Sede</strong>
+                  <span itemprop="streetAddress">{SITE_CONFIG.address.streetAddress}</span> - <span itemprop="addressLocality">{SITE_CONFIG.address.neighborhood}</span><br />
+                  <span>{SITE_CONFIG.address.addressLocality}</span> - <span itemprop="addressRegion">{SITE_CONFIG.address.addressRegion}</span>, CEP: <span itemprop="postalCode">{SITE_CONFIG.address.postalCode}</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 text-sm text-gray-700">
+                <span class="text-secondary text-lg">📱</span>
+                <div>
+                  <strong class="text-gray-900 block font-bold">WhatsApp Oficial</strong>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-secondary hover:text-primary font-bold">{SITE_CONFIG.whatsapp}</a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 text-sm text-gray-700">
+                <span class="text-secondary text-lg">🕒</span>
+                <div>
+                  <strong class="text-gray-900 block font-bold">Horário de Funcionamento</strong>
+                  <span>{SITE_CONFIG.openingHoursHuman}</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 text-sm text-gray-700">
+                <span class="text-secondary text-lg">✉️</span>
+                <div>
+                  <strong class="text-gray-900 block font-bold">E-mail Comercial</strong>
+                  <span itemprop="email">{SITE_CONFIG.email}</span>
+                </div>
+              </div>
+
+              <!-- Bairros Atendidos -->
+              <div class="pt-4 border-t border-gray-200/80 flex items-center gap-3 text-sm text-gray-700">
+                <span class="text-secondary text-lg">📍</span>
+                <span class="font-bold text-gray-900">Atendimento em todos os Bairros de Uberlândia</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Coluna 2: Formulário Funcional com Padding Interno Grande p-10/p-12 (7 colunas) -->
+          <div class="lg:col-span-7">
+            <div class="bg-white rounded-3xl border border-gray-200/80 p-8 sm:p-10 lg:p-12 shadow-2xl shadow-gray-200/50">
+              <span class="text-xs font-black uppercase tracking-wider text-secondary mb-2 block">
+                Orçamento Online
+              </span>
+              <h3 class="text-2xl sm:text-3xl font-black text-gray-900 mb-6 tracking-tight">
+                Envie os Dados do seu Projeto
+              </h3>
+
+              <form id="budget-form" data-whatsapp={SITE_CONFIG.whatsappRaw} class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-xs font-black uppercase tracking-wider text-gray-700 mb-2" for="nome">
+                      Seu Nome Completo *
+                    </label>
+                    <input
+                      type="text"
+                      id="nome"
+                      required
+                      placeholder="Ex: Carlos Silva"
+                      class="w-full p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-200 text-gray-900 text-base focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-black uppercase tracking-wider text-gray-700 mb-2" for="telefone">
+                      Telefone / WhatsApp *
+                    </label>
+                    <input
+                      type="tel"
+                      id="telefone"
+                      required
+                      placeholder="(34) 99999-9999"
+                      class="w-full p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-200 text-gray-900 text-base focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-xs font-black uppercase tracking-wider text-gray-700 mb-2" for="bairro">
+                      Bairro em Uberlândia *
+                    </label>
+                    <input
+                      type="text"
+                      id="bairro"
+                      required
+                      placeholder="Ex: Santa Mônica, Granja Marileusa..."
+                      class="w-full p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-200 text-gray-900 text-base focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-black uppercase tracking-wider text-gray-700 mb-2" for="servico">
+                      Tipo de Serviço Desejado
+                    </label>
+                    <select
+                      id="servico"
+                      class="w-full p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-200 text-gray-900 text-base focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary transition-all font-medium"
+                    >
+                      <option value="">Selecione o serviço...</option>
+                      <option value="box">Box para Banheiro (Até o teto, correr, elegance)</option>
+                      <option value="espelhos">Espelhos Lapidados, Bisotados ou com LED</option>
+                      <option value="sacadas">Fechamento de Sacadas e Varandas (Cortina de Vidro)</option>
+                      <option value="portas-janelas">Portas e Janelas de Vidro & Esquadrias</option>
+                      <option value="guarda-corpo">Guarda-Corpo e Corrimão em Inox</option>
+                      <option value="cobertura">Coberturas e Pergolados de Vidro Laminado</option>
+                      <option value="outro">Outro Projeto Personalizado</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-black uppercase tracking-wider text-gray-700 mb-2" for="mensagem">
+                    Detalhes do Projeto / Medidas Aproximadas
+                  </label>
+                  <textarea
+                    id="mensagem"
+                    rows="4"
+                    placeholder="Descreva as medidas aproximadas, cor do perfil (preto, cromado, champagne) ou dúvidas sobre o vidro..."
+                    class="w-full p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-200 text-gray-900 text-base focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                  ></textarea>
+                </div>
+
+                <!-- Botão de Envio com Ícone do WhatsApp e Efeito de Destaque -->
+                <button
+                  type="submit"
+                  class="w-full p-5 sm:p-6 rounded-2xl bg-[#25D366] hover:bg-emerald-600 text-white font-black text-base sm:text-lg shadow-xl shadow-green-600/25 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-green-300 cursor-pointer flex items-center justify-center gap-3"
+                >
+                  <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                  <span>Enviar Solicitação no WhatsApp</span>
+                </button>
+
+                <p class="text-xs text-center text-gray-500 font-medium">
+                  🔒 Seus dados são protegidos e enviados diretamente ao nosso WhatsApp de atendimento.
+                </p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('budget-form') as HTMLFormElement | null;
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nome = (document.getElementById('nome') as HTMLInputElement | null)?.value.trim() || '';
+        const telefone = (document.getElementById('telefone') as HTMLInputElement | null)?.value.trim() || '';
+        const bairro = (document.getElementById('bairro') as HTMLInputElement | null)?.value.trim() || '';
+        const servicoSelect = document.getElementById('servico') as HTMLSelectElement | null;
+        const servico = (servicoSelect && servicoSelect.value) ? servicoSelect.selectedOptions[0]?.text : '';
+        const mensagem = (document.getElementById('mensagem') as HTMLTextAreaElement | null)?.value.trim() || '';
+
+        const lines: string[] = [
+          '*Olá! Solicitação de Orçamento - Vidraçaria Axis Glass*',
+          '',
+          `👤 *Nome:* ${nome}`,
+          `📱 *Telefone:* ${telefone}`,
+          `📍 *Bairro:* ${bairro}`,
+        ];
+
+        if (servico) {
+          lines.push(`🔧 *Serviço:* ${servico}`);
+        }
+
+        if (mensagem) {
+          lines.push(`📝 *Detalhes / Medidas:* ${mensagem}`);
+        }
+
+        const rawNumber = form.dataset.whatsapp || '5511964299548';
+        const text = encodeURIComponent(lines.join('\n'));
+        const whatsappUrl = `https://wa.me/${rawNumber}?text=${text}`;
+
+        window.open(whatsappUrl, '_blank');
+      });
+    }
+  </script>
+</Layout>

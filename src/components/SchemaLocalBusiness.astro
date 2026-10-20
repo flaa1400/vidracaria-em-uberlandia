@@ -1,0 +1,174 @@
+---
+import { SITE_CONFIG } from '../data/config';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
+  '@id': `${SITE_CONFIG.siteUrl}/#localbusiness`,
+  name: SITE_CONFIG.name,
+  alternateName: SITE_CONFIG.tradeName,
+  legalName: SITE_CONFIG.legalName,
+  description: SITE_CONFIG.description,
+  url: SITE_CONFIG.siteUrl,
+  logo: `${SITE_CONFIG.siteUrl}/favicon.svg`,
+  image: `${SITE_CONFIG.siteUrl}/favicon.svg`,
+  telephone: `+${SITE_CONFIG.whatsappRaw}`,
+  email: SITE_CONFIG.email,
+  sameAs: [
+    SITE_CONFIG.social.instagram,
+    SITE_CONFIG.social.facebook,
+  ],
+  priceRange: SITE_CONFIG.priceRange,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE_CONFIG.address.streetAddress,
+    addressLocality: SITE_CONFIG.address.addressLocality,
+    addressRegion: SITE_CONFIG.address.addressRegion,
+    postalCode: SITE_CONFIG.address.postalCode,
+    addressCountry: SITE_CONFIG.address.addressCountry,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: SITE_CONFIG.geo.latitude,
+    longitude: SITE_CONFIG.geo.longitude,
+  },
+  openingHoursSpecification: SITE_CONFIG.openingHoursSpecification.map((schedule) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: schedule.dayOfWeek,
+    opens: schedule.opens,
+    closes: schedule.closes,
+  })),
+  areaServed: SITE_CONFIG.areaServed.map((neighborhood) => ({
+    '@type': 'AdministrativeArea',
+    name: `${neighborhood}, Uberlândia - MG`,
+  })),
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Serviços de Vidraçaria, Esquadrias e Manutenções',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Esquadrias de Alumínio em Uberlândia',
+          description: 'Fabricação e instalação de esquadrias de alumínio linhas Suprema e Gold sob medida.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Manutenção em Sacadas de Vidro em Uberlândia',
+          description: 'Troca de roldanas de inox, vedação contra chuva e regulagem de cortinas de vidro.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Manutenção em Esquadrias de Alumínio em Uberlândia',
+          description: 'Reparo de portas e janelas de correr, troca de fechos e roldanas de alta resistência.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Conserto de Box de Banheiro em Uberlândia',
+          description: 'Atendimento ágil para portas caídas, troca de roldanas e vedações anti-vazamento.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Cortina de Vidro em Uberlândia',
+          description: 'Instalação de sistema retrátil panorâmico com abertura 100% para varandas e sacadas.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Envidraçamento de Sacada em Uberlândia',
+          description: 'Fechamento de varandas gourmet com vidro temperado de alta segurança e ART.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Divisórias de Vidro em Uberlândia',
+          description: 'Divisórias corporativas e residenciais para cozinhas, lavanderias e escritórios.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Fechamento de Área Externa com Vidro em Uberlândia',
+          description: 'Fechamento de quiosques, áreas de churrasqueira e garagens com portas panorâmicas.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Guarda Corpo de Vidro em Uberlândia',
+          description: 'Guarda-corpos para escadas, mezaninos e sacadas com torres inox conforme NBR 14718.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Muro de Vidro em Uberlândia',
+          description: 'Muros e fachadas de vidro temperado e laminado com portões integrados.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Telhado ou Cobertura de Vidro em Uberlândia',
+          description: 'Coberturas de vidro laminado com controle solar para pergolados e garagens.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Box para Banheiro em Uberlândia',
+          description: 'Box até o teto, frontal de correr, de canto e linha Elegance sob medida.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Porta de Vidro Temperado em Uberlândia',
+          description: 'Portas pivotantes com mola de piso hidráulica e portas de correr de alta resistência.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Manutenção de Box de Banheiro em Uberlândia',
+          description: 'Revisão preventiva periódica conforme a norma ABNT NBR 14207 para segurança familiar.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Espelhos Sob Medida em Uberlândia',
+          description: 'Espelhos lapidados, bisotados e espelhos orgânicos com retroiluminação LED.',
+        },
+      },
+    ],
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

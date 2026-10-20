@@ -1,0 +1,57 @@
+---
+const differentials = [
+  {
+    icon: "⚡",
+    title: "Medição Rápida em até 2h",
+    description: "Atendimento ágil para vistorias em toda Uberlândia. Vamos até sua obra ou residência para tirar medidas precisas com agendamento pontual.",
+  },
+  {
+    icon: "📐",
+    title: "Equipamentos a Laser Revisados",
+    description: "Medidores a laser calibrados e ferramentas de alta precisão que garantem prumo milimétrico, sem risco de folgas ou frestas na instalação.",
+  },
+  {
+    icon: "🛡️",
+    title: "Vidros Certificados pelo Inmetro",
+    description: "Trabalhamos estritamente com vidros Cebrace e Guardian que atendem a todas as normas de segurança ABNT NBR 14207, 14718 e NR-18.",
+  },
+  {
+    icon: "💰",
+    title: "Melhor Custo-Benefício da Cidade",
+    description: "Preço direto de fábrica, condições de parcelamento facilitadas e transparência total em cada item do seu orçamento, sem surpresas.",
+  },
+];
+---
+
+<section id="diferenciais" class="bg-slate-900 text-white relative overflow-hidden py-24 lg:py-32">
+  <div class="container mx-auto px-6 lg:px-12 relative z-10">
+    <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-yellow-400/20 text-primary text-xs font-black uppercase tracking-wider mb-4 border border-yellow-400/30">
+        Nossos Diferenciais
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tighter mb-6">
+        Por Que a Vidraçaria Uberlândia é a Sua <span class="text-primary">Melhor Escolha</span>?
+      </h2>
+      <!-- DITADURA DO CONTRASTE: text-gray-100 -->
+      <p class="text-base sm:text-lg text-gray-100 leading-relaxed font-normal">
+        Aliamos pontualidade mineira, materiais de primeira linha e mão de obra técnica especializada para garantir sua satisfação do início ao fim.
+      </p>
+    </div>
+
+    <!-- Grid com 4 blocos, padding p-10/p-12, contraste cristalino e micro-interações -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
+      {differentials.map((item) => (
+        <div class="bg-slate-800/90 rounded-3xl p-10 lg:p-12 border border-slate-700/80 shadow-xl shadow-black/30 hover:border-primary/60 transition-all duration-300 hover:scale-105 active:scale-95 group">
+          <div class="text-4xl mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
+          <h3 class="text-2xl font-black text-primary leading-tight mb-4 tracking-tight">
+            {item.title}
+          </h3>
+          <!-- DITADURA DO CONTRASTE: text-white / text-gray-100 -->
+          <p class="text-gray-100 text-base leading-relaxed font-normal">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

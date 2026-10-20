@@ -1,0 +1,72 @@
+---
+import { SITE_CONFIG } from '../data/config';
+
+const addressQuery = encodeURIComponent(SITE_CONFIG.address.fullFormatted);
+const mapEmbedUrl = `https://maps.google.com/maps?q=${addressQuery}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+---
+
+<section id="localizacao" class="bg-white py-24 lg:py-32 border-b border-gray-100">
+  <div class="container mx-auto px-6 lg:px-12">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-green-100 text-secondary text-xs font-black uppercase tracking-wider mb-4 border border-green-200">
+        Nossa Localização Oficial
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight tracking-tighter mb-4">
+        Venha Conhecer a Vidraçaria Axis Glass em Uberlândia
+      </h2>
+      <p class="text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
+        Localizados estrategicamente no bairro Tubalina para atender com rapidez obras e reformas em toda a cidade.
+      </p>
+    </div>
+
+    <!-- Container Médio do Mapa Google com Card de Endereço -->
+    <div class="max-w-5xl mx-auto bg-white rounded-3xl border border-green-100 p-4 sm:p-6 shadow-xl shadow-green-950/5">
+      <!-- Iframe em Tamanho Médio Responsivo -->
+      <div class="w-full h-[380px] sm:h-[450px] rounded-2xl overflow-hidden relative shadow-inner border border-gray-200">
+        <iframe
+          title="Localização da Vidraçaria Axis Glass no Google Maps"
+          src={mapEmbedUrl}
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-full"
+        ></iframe>
+      </div>
+
+      <!-- Barra Informativa Abaixo do Mapa -->
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-brand-light/70 border border-green-200">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-secondary text-white flex items-center justify-center font-black text-xl shrink-0 shadow-md">
+            📍
+          </div>
+          <div>
+            <strong class="text-gray-900 text-base sm:text-lg font-black block leading-tight">
+              {SITE_CONFIG.name}
+            </strong>
+            <span class="text-sm text-gray-700 block mt-1">
+              {SITE_CONFIG.address.fullFormatted}
+            </span>
+            <span class="text-xs text-secondary font-bold block mt-0.5">
+              Horário: {SITE_CONFIG.openingHoursHuman}
+            </span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <a
+            href={SITE_CONFIG.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[#25D366] hover:bg-emerald-600 text-white font-bold text-sm shadow-md transition-all duration-300 hover:scale-105 active:scale-95"
+          >
+            <span>Falar no WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
