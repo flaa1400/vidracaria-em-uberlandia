@@ -1,6 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <rect width="100" height="100" rx="20" fill="#2563EB"/>
-  <path d="M25 25H75V75H25V25Z" stroke="white" stroke-width="8" stroke-linejoin="round"/>
-  <path d="M25 50H75" stroke="white" stroke-width="6"/>
-  <path d="M50 25V75" stroke="white" stroke-width="6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16A34A" />
+      <stop offset="100%" stop-color="#064E3B" />
+    </linearGradient>
+    <linearGradient id="glassFacet1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#BBF7D0" stop-opacity="0.4" />
+    </linearGradient>
+    <linearGradient id="glassFacet2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86EFAC" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#15803D" stop-opacity="0.4" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular Badge Base -->
+  <circle cx="50" cy="50" r="48" fill="url(#bgGrad)" />
+  <circle cx="50" cy="50" r="44" fill="none" stroke="#86EFAC" stroke-width="2" stroke-opacity="0.5" />
+
+  <!-- Crystal Faceted Glass Diamond -->
+  <!-- Top facets -->
+  <polygon points="34,30 66,30 50,44" fill="#FFFFFF" opacity="0.9" />
+  <polygon points="22,44 34,30 50,44" fill="#DCFCE7" opacity="0.75" />
+  <polygon points="78,44 66,30 50,44" fill="#BBF7D0" opacity="0.7" />
+
+  <!-- Bottom facets -->
+  <polygon points="22,44 50,44 50,76" fill="#22C55E" opacity="0.85" />
+  <polygon points="50,44 78,44 50,76" fill="url(#glassFacet2)" />
+  <polygon points="34,44 66,44 50,76" fill="url(#glassFacet1)" />
+
+  <!-- Sparkle light glint -->
+  <circle cx="34" cy="30" r="2.5" fill="#FFFFFF" />
+  <path d="M50,18 L52,24 L58,24 L53,28 L55,34 L50,30 L45,34 L47,28 L42,24 L48,24 Z" fill="#FFFFFF" opacity="0.8" transform="scale(0.5) translate(66, 16)" />
 </svg>
