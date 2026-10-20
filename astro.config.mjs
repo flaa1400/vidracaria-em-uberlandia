@@ -9,6 +9,10 @@ export default defineConfig({
   site: SITE_CONFIG.siteUrl,
   output: 'static',
   adapter: vercel(),
+  compressHTML: true,
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [
     tailwind(),
     sitemap(),

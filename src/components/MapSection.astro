@@ -20,20 +20,49 @@ const mapEmbedUrl = `https://maps.google.com/maps?q=${addressQuery}&t=&z=16&ie=U
       </p>
     </div>
 
-    <!-- Container Médio do Mapa Google com Card de Endereço -->
+    <!-- Container Médio do Mapa Google com Card de Endereço (Facade / IntersectionObserver para Zero Render Blocking e Zero Reflow) -->
     <div class="max-w-5xl mx-auto bg-white rounded-3xl border border-green-100 p-4 sm:p-6 shadow-xl shadow-green-950/5">
-      <!-- Iframe em Tamanho Médio Responsivo -->
-      <div class="w-full h-[380px] sm:h-[450px] rounded-2xl overflow-hidden relative shadow-inner border border-gray-200">
+      <!-- Container do Mapa com Facade e Carregamento Sob Demanda -->
+      <div id="map-container" class="w-full h-[380px] sm:h-[450px] rounded-2xl overflow-hidden relative shadow-inner border border-gray-200 bg-emerald-50/40 flex items-center justify-center">
+        <!-- Placeholder Elegante / Facade (evita reflow e requisições no carregamento inicial da página) -->
+        <div id="map-placeholder" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-emerald-50 via-white to-emerald-100/50 z-10 transition-opacity duration-300">
+          <div class="w-16 h-16 rounded-2xl bg-secondary text-white flex items-center justify-center text-3xl shadow-lg mb-4">
+            📍
+          </div>
+          <p class="text-gray-900 font-black text-lg sm:text-xl mb-1">{SITE_CONFIG.name}</p>
+          <p class="text-gray-600 text-sm max-w-md mb-4">{SITE_CONFIG.address.fullFormatted}</p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={`https://maps.google.com/?q=${addressQuery}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-secondary hover:bg-emerald-800 text-white font-bold text-xs shadow-md transition-all duration-200"
+            >
+              <span>Abrir no Google Maps</span>
+              <span>↗</span>
+            </a>
+            <button
+              id="load-map-btn"
+              type="button"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-secondary border border-emerald-300 font-bold text-xs shadow-sm transition-all duration-200"
+            >
+              <span>Carregar Mapa Interativo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Iframe Carregado sob Demanda quando o Usuário se Aproxima da Seção -->
         <iframe
+          id="map-iframe"
           title="Localização da Vidraçaria Axis Glass no Google Maps"
-          src={mapEmbedUrl}
+          data-src={mapEmbedUrl}
           width="100%"
           height="100%"
           style="border:0;"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          class="w-full h-full"
+          class="w-full h-full relative z-20 opacity-0 transition-opacity duration-500"
         ></iframe>
       </div>
 
@@ -70,3 +99,54 @@ const mapEmbedUrl = `https://maps.google.com/maps?q=${addressQuery}&t=&z=16&ie=U
     </div>
   </div>
 </section>
+
+<script>
+  function setupMap() {
+    const container = document.getElementById('map-container');
+    const iframe = document.getElementById('map-iframe') as HTMLIFrameElement | null;
+    const placeholder = document.getElementById('map-placeholder');
+    const loadBtn = document.getElementById('load-map-btn');
+
+    if (!container || !iframe) return;
+
+    let loaded = false;
+
+    function loadIframe() {
+      if (loaded || !iframe || !iframe.dataset.src) return;
+      loaded = true;
+      iframe.src = iframe.dataset.src;
+      iframe.onload = () => {
+        iframe.classList.remove('opacity-0');
+        if (placeholder) {
+          placeholder.classList.add('opacity-0', 'pointer-events-none');
+          setTimeout(() => {
+            placeholder.style.display = 'none';
+          }, 350);
+        }
+      };
+    }
+
+    if (loadBtn) {
+      loadBtn.addEventListener('click', loadIframe);
+    }
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              loadIframe();
+              observer.disconnect();
+            }
+          });
+        },
+        { rootMargin: '200px' }
+      );
+      observer.observe(container);
+    } else {
+      loadIframe();
+    }
+  }
+
+  setupMap();
+</script>
