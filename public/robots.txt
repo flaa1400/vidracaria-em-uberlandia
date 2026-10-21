@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vidracariaaxisglass.com.br/sitemap-index.xml
